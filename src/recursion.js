@@ -22,7 +22,7 @@ var factorial = function(n) {
 
 
 // 2. Compute the sum of an array of integers.
-// sum([1,2,3,4,5,6]); // 21
+ //sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
   if (array.length === 0) {
   return 0;
@@ -48,20 +48,25 @@ var isEven = function(n) {
       return true;
       }
     else if (n === 1) {
-      return false
+      return false;
       }
-    else if (n < 0) {
-      return isEven(-n)
-      }
-    else
-      return isEven(n - 2)
+    return isEven(Math.abs(n)-2)
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+ //base case
+  if (n === 0){
+  return 0;
+ }
+ else if (n<0){
+   return n+1 + sumBelow(n+1);
+ }
+ return n-1 + sumBelow(n-1);
 };
+
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
